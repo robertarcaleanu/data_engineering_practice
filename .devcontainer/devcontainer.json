@@ -11,7 +11,9 @@
         "vscode": {
             "settings": {
                 "python.defaultInterpreterPath": "/opt/my_python_dev/bin/python3",
-                "python.selectInterpreter": "/opt/my_python_dev/bin/python3"
+                "python.selectInterpreter": "/opt/my_python_dev/bin/python3",
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true
             },
             "extensions": [
                 "ms-python.python",

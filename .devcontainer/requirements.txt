@@ -1,5 +1,6 @@
 wheel==0.40.0
-pandas==2.0.3
+pandas
 ipykernel
 ipywidgets
-jupyter 
+jupyter
+black
