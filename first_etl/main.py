@@ -3,7 +3,7 @@ from first_etl.transform import Transformer
 from first_etl.first_etl.load import Loader
 
 def main():
-    Extractor().extract_data()
+    df = Extractor().extract_data()
     Transformer().transform()
     Loader().load()
 

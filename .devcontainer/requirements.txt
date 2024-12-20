@@ -4,3 +4,4 @@ ipykernel
 ipywidgets
 jupyter
 black
+awswrangler==3.10.1
