@@ -7,3 +7,4 @@ jupyter
 awswrangler==3.10.1
 requests
 polars
+debugpy

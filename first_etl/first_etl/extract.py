@@ -8,14 +8,28 @@ class Extractor:
         self.auth_param = auth
 
     def get_departures_by_airport(self, airport: str, time_interval: time_interval):
-        url = "https://opensky-network.org/api/flights/arrival"
+        url = "https://opensky-network.org/api/flights/departure"
         params = {
             "airport": airport,
             "begin": time_interval.begin,
             "end": time_interval.end,
         }
-        return requests.get(
+        response = requests.get(
             url,
             params=params,
             auth=HTTPBasicAuth(self.auth.username, self.auth.password),
         ).json()
+        return response
+
+    def get_flights_from_interval(self, time_interval: time_interval):
+        url = "https://opensky-network.org/api/flights/all"
+        params = {
+            "begin": time_interval.begin,
+            "end": time_interval.end,
+        }
+        response = requests.get(
+            url,
+            params=params,
+            auth=HTTPBasicAuth(self.auth.username, self.auth.password),
+        ).json()
+        return response
