@@ -1,11 +1,23 @@
-FROM python:3.10
+FROM ubuntu:22.04 
 
-ARG PYTHON_ENV=my_env
+# Arguments
+ARG PYTHON_VER="3.11"
+ARG VENV_NAME="E2E_project"
+ARG RUFF_VER="0.8.4"
 
-ENV PYTHON_ENV=$PYTHON_ENV
+# Environment variables
+ENV VENV_NAME=$VENV_NAME
+ENV PYTHON_VER=$PYTHON_VER
+ENV RUFF_VER=$RUFF_VER
 
-RUN mkdir requirements
+# Copy files
+RUN mkdir settings
 
-COPY requirements.txt set_python_env.sh /requirements/
+COPY install_uv.sh install_dependencies.sh requirements.txt settings/
+RUN bash ./settings/install_dependencies.sh
+RUN apt-get update && apt-get install -y git
 
-RUN bash ./requirements/set_python_env.sh $PYTHON_ENV
+# RUN bash ./settings/install_quarto.sh $QUARTO_VER
+
+# Set Python environment
+RUN bash ./settings/install_uv.sh $VENV_NAME $PYTHON_VER $RUFF_VER

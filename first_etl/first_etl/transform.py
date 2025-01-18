@@ -1,6 +1,7 @@
 import pandas as pd
 from io import StringIO
 
+
 class Transformer:
     def __init__(self) -> None:
         pass

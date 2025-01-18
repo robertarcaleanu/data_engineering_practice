@@ -1,7 +1,9 @@
 wheel==0.40.0
-pandas
-ipykernel
+pandas==2.0.3
+plotly==5.15.0
+plotly-express==0.4.1
 ipywidgets
-jupyter
-black
+jupyter 
 awswrangler==3.10.1
+requests
+polars
