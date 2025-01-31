@@ -15,11 +15,11 @@ provider "aws" {
 
 
 locals {
-  company = "robert"
+  company = "robert-arc"
   environments = {
     production  = "${local.company}-data-lake-production"
     development = "${local.company}-data-lake-development"
-    test = "my-etl-bucket"
+    test = "${local.company}-my-etl-bucket"
   }
 }
 

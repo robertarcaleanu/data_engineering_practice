@@ -1,4 +1,4 @@
 AIRPORT = "LEBL"
 START_DATE = "2025-01-30 00:00:00"
 END_DATE = "2025-01-30 01:00:00"
-BUCKET_NAME = 'robert-my-etl-bucket'
+BUCKET_NAME = "robert-arc-my-etl-bucket"
