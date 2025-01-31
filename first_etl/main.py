@@ -1,9 +1,11 @@
 import os
 
-from first_etl.classes import auth_param, time_interval
-from first_etl.first_etl.extract import Extractor
-from first_etl.metadata import AIRPORT, END_DATE, START_DATE
-from first_etl.utils import string_to_unix_time
+from classes import auth_param, time_interval
+from extract import Extractor
+from load import Loader
+from metadata import AIRPORT, END_DATE, START_DATE
+from transform import Transformer
+from utils import string_to_unix_time
 
 
 def main():
@@ -16,8 +18,10 @@ def main():
             begin=string_to_unix_time(START_DATE, "%Y-%m-%d %H:%M:%S"), end=string_to_unix_time(END_DATE, "%Y-%m-%d %H:%M:%S")
         ),
     )
+    df = Transformer().transform(source=response)
+    Loader().load_data(df)
     print(response)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()

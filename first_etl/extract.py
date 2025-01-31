@@ -17,7 +17,7 @@ class Extractor:
         response = requests.get(
             url,
             params=params,
-            auth=HTTPBasicAuth(self.auth.username, self.auth.password),
+            auth=HTTPBasicAuth(self.auth_param.username, self.auth_param.password),
         ).json()
         return response
 

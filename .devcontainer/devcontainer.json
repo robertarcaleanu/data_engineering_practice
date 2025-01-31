@@ -18,6 +18,7 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "charliermarsh.ruff",
+                "ms-python.debugpy",
                 // HTML
                 "ms-vscode.live-server",
                 // Documents/Settings

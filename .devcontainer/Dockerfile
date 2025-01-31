@@ -17,7 +17,5 @@ COPY install_uv.sh install_dependencies.sh requirements.txt settings/
 RUN bash ./settings/install_dependencies.sh
 RUN apt-get update && apt-get install -y git
 
-# RUN bash ./settings/install_quarto.sh $QUARTO_VER
-
 # Set Python environment
 RUN bash ./settings/install_uv.sh $VENV_NAME $PYTHON_VER $RUFF_VER
