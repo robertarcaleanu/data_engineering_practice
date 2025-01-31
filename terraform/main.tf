@@ -12,3 +12,22 @@ terraform {
 provider "aws" {
   region = "eu-west-1"
 }
+
+
+locals {
+  company = "robert"
+  environments = {
+    production  = "${local.company}-data-lake-production"
+    development = "${local.company}-data-lake-development"
+    test = "my-etl-bucket"
+  }
+}
+
+
+resource "aws_s3_bucket" "datalake" {
+  for_each = local.environments
+  bucket   = each.value
+  tags = {
+    Environment = each.key
+  }
+}

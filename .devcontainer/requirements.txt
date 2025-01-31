@@ -1,5 +1,6 @@
 wheel==0.40.0
 pandas==2.0.3
+numpy==1.26.4
 plotly==5.15.0
 plotly-express==0.4.1
 ipywidgets
@@ -9,4 +10,3 @@ requests
 polars
 debugpy
 pyarrow
-awswrangler

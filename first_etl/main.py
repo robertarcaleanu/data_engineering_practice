@@ -1,6 +1,7 @@
 import os
 
 from classes import auth_param, time_interval
+from dotenv import load_dotenv
 from extract import Extractor
 from load import Loader
 from metadata import AIRPORT, END_DATE, START_DATE
@@ -9,6 +10,7 @@ from utils import string_to_unix_time
 
 
 def main():
+    load_dotenv()
     auth = auth_param(
         username=os.getenv("OPEN_SKY_USERNAME"), password=os.getenv("OPEN_SKY_PASSWORD")
     )
@@ -20,7 +22,8 @@ def main():
     )
     df = Transformer().transform(source=response)
     Loader().load_data(df)
-    print(response)
+    success = True
+    return success
 
 
 if __name__ == "__main__":

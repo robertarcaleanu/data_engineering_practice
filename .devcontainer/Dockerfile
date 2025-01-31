@@ -19,3 +19,18 @@ RUN apt-get update && apt-get install -y git
 
 # Set Python environment
 RUN bash ./settings/install_uv.sh $VENV_NAME $PYTHON_VER $RUFF_VER
+
+# Install AWS CLI
+RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip -qq awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip ./aws
+
+# Add HashiCorp GPG key and repository
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && \
+    apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
+    apt update && \
+    apt install -y terraform
+
+# Verify installation
+RUN terraform -version
